@@ -1,0 +1,52 @@
+-- =====================================================================
+-- PLP Week 8 Assignment: MySQL Database Backup and Restore
+-- File: answer.sql
+-- =====================================================================
+
+
+-- ---------------------------------------------------------------------
+-- Question 1: Creating a Complete Database Backup
+-- ---------------------------------------------------------------------
+-- Objective: Create a full backup of the 'sales' database using mysqldump.
+-- 
+-- Terminal Command:
+-- mysqldump -u root -p sales > sales_backup.sql
+--
+-- Explanation of the Command:
+-- - `mysqldump`: The MySQL utility tool used to generate backup files containing SQL statements.
+-- - `-u root`: Specifies the MySQL username to connect with (root user).
+-- - `-p`: Tells MySQL to prompt securely for the user's password before running.
+-- - `sales`: The name of the specific database being backed up.
+-- - `> sales_backup.sql`: Redirects the output SQL script into a local file named 'sales_backup.sql'.
+--
+-- Importance of Regular Backups:
+-- Regular database backups are crucial for disaster recovery, protecting against 
+-- accidental data deletion, hardware failures, corrupted tables, or malicious attacks, 
+-- ensuring business continuity and data integrity.
+------------------------------------------------------------------------
+
+
+-- ---------------------------------------------------------------------
+-- Question 2: Backing Up All Databases
+-- ---------------------------------------------------------------------
+-- Objective: Create a complete backup of every database on the MySQL server 
+-- prior to a planned server migration.
+-- 
+-- Terminal Command:
+-- mysqldump -u root -p --all-databases > all_databases_backup.sql
+--
+-- Explanation of the Command:
+-- - `--all-databases`: A global flag that instructs mysqldump to export all databases 
+--   present on the MySQL server instance (including system databases, user schemas, 
+--   stored procedures, and user privileges depending on configuration).
+-- - `-u root -p`: Connects as the root administrator and prompts for password authentication.
+-- - `> all_databases_backup.sql`: Outputs the entire dump of all server databases 
+--   into a single comprehensive backup file.
+--
+-- Importance Before Server Migration:
+-- Backing up all databases is essential before migrating to a new server because 
+-- it ensures that not only application data (like the sales database) is preserved, 
+-- but also server configurations, system tables, user accounts, and permissions. 
+-- This guarantees a seamless migration where the target server can be restored to 
+-- an identical operational state with zero configuration loss.
+------------------------------------------------------------------------
